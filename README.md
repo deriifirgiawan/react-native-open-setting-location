@@ -11,11 +11,24 @@ npm install react-native-open-setting-location
 ## Usage
 
 ```js
-import { multiply } from "react-native-open-setting-location";
+import React from "react";
+import { View, Button } from "react-native";
+import { openLocationService } from 'react-native-open-setting-location';
 
-// ...
+export default function App() {
 
-const result = await multiply(3, 7);
+  return (
+    <View>
+        <Button
+            title="Open Location Setting"
+            onPress={() => openLocationService()}
+        />
+    </View>
+  );
+}
+
+.
+
 ```
 
 ## Contributing
