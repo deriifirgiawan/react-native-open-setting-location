@@ -1,5 +1,8 @@
 package com.reactnativeopensettinglocation;
 
+import android.content.Intent;
+import android.provider.Settings;
+
 import androidx.annotation.NonNull;
 
 import com.facebook.react.bridge.Promise;
@@ -28,6 +31,14 @@ public class OpenSettingLocationModule extends ReactContextBaseJavaModule {
     @ReactMethod
     public void multiply(int a, int b, Promise promise) {
         promise.resolve(a * b);
+    }
+
+    @ReactMethod
+    public void openSetting() {
+      final String locationService = Settings.ACTION_LOCATION_SOURCE_SETTINGS;
+      final Intent intent = new Intent(locationService);
+      intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+      getReactApplicationContext().startActivity(intent);
     }
 
     public static native int nativeMultiply(int a, int b);

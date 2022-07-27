@@ -20,3 +20,7 @@ const OpenSettingLocation = NativeModules.OpenSettingLocation
 export function multiply(a: number, b: number): Promise<number> {
   return OpenSettingLocation.multiply(a, b);
 }
+
+export function openLocationService() {
+  return OpenSettingLocation.openSetting();
+}
